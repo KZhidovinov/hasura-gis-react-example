@@ -1,0 +1,9 @@
+- type: untrack_table
+  args:
+    schema: public
+    name: node
+    table: node
+- type: run_sql
+  args:
+    sql: |
+      DROP TABLE "public"."node";

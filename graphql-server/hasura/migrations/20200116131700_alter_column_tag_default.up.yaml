@@ -1,0 +1,5 @@
+- type: run_sql
+  args:
+    sql: |
+      ALTER TABLE node ALTER COLUMN tags SET DEFAULT '{}'::jsonb;
+      ALTER TABLE way  ALTER COLUMN tags SET DEFAULT '{}'::jsonb;

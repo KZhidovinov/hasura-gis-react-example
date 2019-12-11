@@ -1,0 +1,15 @@
+#import "./node-info.gql"
+#import "./way-info.gql"
+#import "./way-node-info.gql"
+
+fragment WayDeepInfo on way {
+  ...WayInfo
+  way_nodes_aggregate(order_by: { way_idx: asc }) {
+    nodes {
+      ...WayNodeInfo
+      node {
+        ...NodeInfo
+      }
+    }
+  }
+}

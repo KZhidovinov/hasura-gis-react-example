@@ -1,0 +1,8 @@
+#import "./fragments/way-deep-info.gql"
+
+# GeoJSON parse bug https://github.com/hasura/graphql-engine/issues/3239
+subscription getWaysInExtent($wkt_extent: String!) {
+  get_ways_in_extent(args: { wkt_extent: $wkt_extent }) {
+    ...WayDeepInfo
+  }
+}

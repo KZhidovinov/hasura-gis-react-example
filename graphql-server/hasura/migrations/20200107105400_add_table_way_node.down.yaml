@@ -1,0 +1,30 @@
+- type: drop_relationship
+  args:
+    table: way_node
+    relationship: way
+
+- type: drop_relationship
+  args:
+    table: way_node
+    relationship: node
+
+- type: drop_relationship
+  args:
+    table: node
+    relationship: way_nodes
+
+- type: drop_relationship
+  args:
+    table: way
+    relationship: way_nodes
+
+- type: untrack_table
+  args:
+    schema: public
+    name: way_node
+    table: way_node
+
+- type: run_sql
+  args:
+    sql: |
+      DROP TABLE "public"."way_node";

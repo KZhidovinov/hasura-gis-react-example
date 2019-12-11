@@ -1,0 +1,14 @@
+mutation insertOsmWays($objects: [way_insert_input!]!, $osm_ids: [bigint!]!) {
+  delete_way_node(where: { way_id: {}, way: { osm_id: { _in: $osm_ids } } }) {
+    affected_rows
+  }
+  insert_way(
+    objects: $objects
+    on_conflict: { constraint: way_osm_id_key, update_columns: [tags] }
+  ) {
+    affected_rows
+    returning {
+      id
+    }
+  }
+}

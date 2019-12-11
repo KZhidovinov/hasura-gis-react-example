@@ -1,0 +1,12 @@
+#import "./fragments/way-deep-info.gql"
+
+mutation insertWays($objects: [way_insert_input!]!) {
+  insert_way(
+    objects: $objects
+    on_conflict: { constraint: way_pkey, update_columns: [tags] }
+  ) {
+    returning {
+      ...WayDeepInfo
+    }
+  }
+}

@@ -1,0 +1,8 @@
+- type: run_sql
+  args:
+    sql: |
+      CREATE UNIQUE INDEX IF NOT EXISTS UX_node_id ON node(id);
+      CREATE INDEX IF NOT EXISTS IX_node_location ON node USING gist (location);
+      CREATE UNIQUE INDEX IF NOT EXISTS UX_way_id ON way(id);
+      CREATE INDEX IF NOT EXISTS IX_way_way_id ON way_node(way_id);
+      CREATE INDEX IF NOT EXISTS IX_way_node_id ON way_node(node_id);

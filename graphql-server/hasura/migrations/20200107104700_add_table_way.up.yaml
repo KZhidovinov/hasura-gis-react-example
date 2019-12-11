@@ -1,0 +1,15 @@
+- type: run_sql
+  args:
+    sql: |
+      CREATE TABLE "public"."way" (
+        "id" SERIAL NOT NULL,
+        "osm_id" BIGINT NULL,
+        "tags" JSONB NOT NULL,
+        PRIMARY KEY ("id"),
+        UNIQUE ("osm_id")
+      );
+- type: track_table
+  args:
+    schema: public
+    name: way
+    table: way

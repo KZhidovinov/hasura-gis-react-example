@@ -1,0 +1,16 @@
+#import "./fragments/way-deep-info.gql"
+
+mutation updateWays($objects: [way_insert_input!]!, $ids: [Int!]!) {
+  delete_way_node(where: { way_id: { _in: $ids } }) {
+    affected_rows
+  }
+
+  insert_way(
+    objects: $objects
+    on_conflict: { constraint: way_pkey, update_columns: [tags] }
+  ) {
+    returning {
+      ...WayDeepInfo
+    }
+  }
+}

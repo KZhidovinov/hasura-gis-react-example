@@ -1,0 +1,27 @@
+# Allow to select way
+- type: create_select_permission
+  args:
+    table: way
+    role: viewer
+    permission:
+      columns: "*"
+      filter: {}
+
+# Allow to select way_node
+- type: create_select_permission
+  args:
+    table: way_node
+    role: viewer
+    permission:
+      columns: "*"
+      filter: {}
+      allow_aggregations: true
+
+# Allow to select node
+- type: create_select_permission
+  args:
+    table: node
+    role: viewer
+    permission:
+      columns: "*"
+      filter: {}

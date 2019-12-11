@@ -1,0 +1,30 @@
+.mapContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.overpass-load-control {
+  background-color: rgba(100, 100, 100, 0.2);
+  border-radius: 5px;
+  padding: 4px;
+  cursor: pointer;
+  color: black;
+}
+
+.overpass-load-control:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+  color: white;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}

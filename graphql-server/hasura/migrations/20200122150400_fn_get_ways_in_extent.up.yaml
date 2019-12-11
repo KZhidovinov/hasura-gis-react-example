@@ -1,0 +1,25 @@
+- type: run_sql
+  args:
+    sql: |
+      create function get_ways_in_extent(wkt_extent text)
+      returns setof way as $$
+        -- create way shapes
+        with way_shapes as (		
+          select 
+            w.*, 
+            ST_MakeLine(n.location::geometry order by wn.way_idx) as shape
+          from way w
+          left join way_node wn on w.id = wn.way_id
+          left join node n on wn.node_id = n.id
+          group by w.id
+        )
+        select w.id, w.osm_id, w.tags
+        from way_shapes w
+        where ST_Intersects(w.shape, wkt_extent::geography)
+
+      $$ language sql stable;
+
+- type: track_function
+  args:
+    schema: public
+    name: get_ways_in_extent

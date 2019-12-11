@@ -1,0 +1,5 @@
+fragment WayInfo on way {
+  id
+  osm_id
+  tags
+}

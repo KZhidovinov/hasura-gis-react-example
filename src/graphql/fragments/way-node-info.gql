@@ -1,0 +1,6 @@
+fragment WayNodeInfo on way_node {
+  way_id
+  node_id
+  way_idx
+#   role
+}

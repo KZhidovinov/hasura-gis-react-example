@@ -1,0 +1,8 @@
+mutation deleteWays($ids: [Int!]!) {
+  delete_way_node(where: { way_id: { _in: $ids } }) {
+    affected_rows
+  }
+  delete_way(where: { id: { _in: $ids } }) {
+    affected_rows
+  }
+}

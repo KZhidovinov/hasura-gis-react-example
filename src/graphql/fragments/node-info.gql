@@ -1,0 +1,7 @@
+fragment NodeInfo on node {
+  id
+  location
+# not used yet  
+#   osm_id
+#   tags
+}

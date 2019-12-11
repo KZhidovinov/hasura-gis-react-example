@@ -1,0 +1,6 @@
+.mapbox-style-select {
+    z-index: 1 !important;
+    position: absolute;
+    right: 50px;
+    top: 10px;
+}

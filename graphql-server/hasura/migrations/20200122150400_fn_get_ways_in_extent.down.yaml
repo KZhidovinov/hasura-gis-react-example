@@ -1,0 +1,9 @@
+- type: untrack_function
+  args:
+    schema: public
+    name: get_ways_in_extent
+
+- type: run_sql
+  args:
+    sql: |
+      drop function get_ways_in_extent;

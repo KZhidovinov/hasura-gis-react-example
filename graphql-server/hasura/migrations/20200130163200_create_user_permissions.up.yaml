@@ -1,0 +1,36 @@
+# Allow to select way
+- type: create_select_permission
+  args:
+    table: way
+    role: user
+    permission:
+      columns: "*"
+      filter: {}
+
+# Allow to select way_node
+- type: create_select_permission
+  args:
+    table: way_node
+    role: user
+    permission:
+      columns: "*"
+      filter: {}
+      allow_aggregations: true
+
+# Allow to select node
+- type: create_select_permission
+  args:
+    table: node
+    role: user
+    permission:
+      columns: "*"
+      filter: {}
+
+# Allow to update way.tags
+- type: create_update_permission
+  args:
+    table: way
+    role: user
+    permission:
+      columns: ["tags"]
+      filter: {}

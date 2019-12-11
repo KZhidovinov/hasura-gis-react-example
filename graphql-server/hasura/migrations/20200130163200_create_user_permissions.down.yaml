@@ -1,0 +1,23 @@
+# Allow to select way
+- type: drop_select_permission
+  args:
+    table: way
+    role: user
+
+# Allow to select way_node
+- type: drop_select_permission
+  args:
+    table: way_node
+    role: user
+
+# Allow to select node
+- type: drop_select_permission
+  args:
+    table: node
+    role: user
+
+# Allow to update way.tags
+- type: drop_update_permission
+  args:
+    table: way
+    role: user

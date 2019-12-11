@@ -1,0 +1,43 @@
+version: "3.7"
+volumes:
+  pgdata:
+networks:
+  postgres_conn:
+    driver: bridge
+services:
+  postgres:
+    image: kzhidovinov/postgis:latest
+    restart: always
+    volumes:
+      - pgdata:${PGDATA}
+    networks:
+      - postgres_conn
+    ports:
+      - "${POSTGRES_PORT}"
+    env_file: .env
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: always
+    depends_on: 
+      - postgres
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: no@mail.ru
+      PGADMIN_DEFAULT_PASSWORD: 1
+    networks: 
+      - postgres_conn
+    ports: 
+      - 8083:80
+  graphql-engine:
+    image: hasura/graphql-engine:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "postgres"
+    restart: always
+    networks:
+      - postgres_conn
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
+      HASURA_GRAPHQL_AUTH_HOOK: ${AUTH_WEBHOOK_URL}
+      HASURA_GRAPHQL_ADMIN_SECRET: ${ADMIN_SECRET}

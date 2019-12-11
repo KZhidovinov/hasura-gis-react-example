@@ -1,0 +1,52 @@
+- type: run_sql
+  args:
+    sql: |
+      CREATE TABLE "public"."way_node" (
+        "way_id" INT NOT NULL,
+        "node_id" INT NOT NULL,
+        "way_idx" INT NOT NULL,
+        "role" TEXT NULL,
+        PRIMARY KEY ("way_id", "node_id"),
+        FOREIGN KEY ("way_id") REFERENCES "public"."way"("id"),
+        FOREIGN KEY ("node_id") REFERENCES "public"."node"("id")
+      );
+- type: track_table
+  args:
+    schema: public
+    name: way_node
+    table: way_node
+
+- type: create_object_relationship
+  # way_node -> node
+  args:
+    table: way_node
+    name: node
+    using:
+      foreign_key_constraint_on: node_id
+- type: create_array_relationship
+  # node -> way_nodes
+  args:
+    table: node
+    name: way_nodes
+    using:
+      foreign_key_constraint_on:
+        table: way_node
+        column: node_id
+
+- type: create_object_relationship
+  # way_node -> way
+  args:
+    table: way_node
+    name: way
+    using:
+      foreign_key_constraint_on: way_id
+
+- type: create_array_relationship
+  # way -> way_nodes
+  args:
+    table: way
+    name: way_nodes
+    using:
+      foreign_key_constraint_on:
+        table: way_node
+        column: way_id

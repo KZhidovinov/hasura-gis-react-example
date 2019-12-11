@@ -1,0 +1,21 @@
+.notification-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  margin: 50px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1 !important;
+}
+
+.notification {
+  background-color: rgba(48, 48, 48, 0.8);
+  color: #ffffff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: larger;
+  display: inline-block;
+}

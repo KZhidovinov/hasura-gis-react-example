@@ -1,0 +1,11 @@
+#import "./fragments/way-deep-info.gql"
+
+query getWaysInExtent($extent: geography!, $limit: Int, $offset: Int) {
+  way(
+    where: { way_nodes: { node: { location: { _st_intersects: $extent } } } }
+    limit: $limit
+    offset: $offset
+  ) {
+    ...WayDeepInfo
+  }
+}

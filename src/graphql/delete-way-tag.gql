@@ -1,0 +1,8 @@
+mutation deleteWayTag($ids: [Int!]!, $tag_key: String!) {
+  update_way(where: {id: {_in: $ids}}, _append: {}, _delete_key: {tags: $tag_key}) {
+    affected_rows
+    returning {
+      id
+    }
+  }
+}

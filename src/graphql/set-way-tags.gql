@@ -1,0 +1,8 @@
+mutation setWayTags($ids: [Int!]!, $tags: jsonb!) {
+  update_way(where: { id: { _in: $ids } }, _append: { tags: $tags }) {
+    affected_rows
+    returning {
+      id
+    }
+  }
+}
