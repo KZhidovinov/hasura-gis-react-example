@@ -25,10 +25,10 @@ export const TEST_VIEWER_TOKEN = 'test_viewer_token'
 export const ANONYMOUS_TOKEN = 'Anonymous'
 
 export const TEST_TOKENS = [
-    { name: 'Анонимно', token: ANONYMOUS_TOKEN },
-    { name: 'Только просмотр', token: TEST_VIEWER_TOKEN },
-    { name: 'Редактор свойств', token: TEST_USER_TOKEN },
-    { name: 'Администратор', token: TEST_ADMIN_TOKEN }
+    { name: 'Anonymous', token: ANONYMOUS_TOKEN },
+    { name: 'Viewer', token: TEST_VIEWER_TOKEN },
+    { name: 'Property Editor', token: TEST_USER_TOKEN },
+    { name: 'Admin', token: TEST_ADMIN_TOKEN }
 ]
 
 export const has_edit_properties_rights = (token: string | null) => ([TEST_ADMIN_TOKEN, TEST_USER_TOKEN].indexOf(token) != -1)

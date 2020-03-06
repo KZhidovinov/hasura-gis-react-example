@@ -34,3 +34,4 @@ Front-end was wrote with using React.js & Mapbox GL JS.
 * Mapbox GL Draw control https://github.com/mapbox/mapbox-gl-draw [[Custom modes](https://github.com/mapbox/mapbox-gl-draw/blob/master/docs/MODES.md#creating-modes-for-mapbox-draw)]
 * PostGIS 3 on PostgreSQL 12 `kzhidovinov/postgis` [Dockerfile](https://github.com/KZhidovinov/postgis-docker/blob/master/Dockerfile)
 * [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API) [[Query example](Overpass-query.md)]
+* Vector tiles from [OpenMapTiles](https://openmaptiles.org/)

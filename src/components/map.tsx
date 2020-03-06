@@ -118,9 +118,9 @@ export default function Map(props: MapProps) {
         <OverpassLoadControl onClick={onOverpassLoadClick} />
         {
             zoom < MIN_ZOOM
-                ? <Notification>Слишком мелкий масштаб! Пожалуйста, приблизьте карту!</Notification>
+                ? <Notification>Map extent is too big! Please zoom in to see objects!</Notification>
                 : features.length > FEATURES_ON_SCREEN_LIMIT
-                    ? <Notification>Слишком много объектов в этой области! Пожалуйста, приблизьте карту!</Notification>
+                    ? <Notification>Object count is too big! Please zoom in to see objects.</Notification>
                     : <DrawControl
                         canEdit={has_edit_geometry_rights(authToken)}
                         position={'top-right'}
